@@ -12,8 +12,13 @@ const cors = require("cors");
 const app = express();
 const port = 3000;
 
-// Enable CORS for all requests
-app.use(cors());
+const corsOptions = {
+  origin: '*',
+  methods: '*',
+  allowedHeaders: '*'
+};
+
+app.use(cors(corsOptions));
 
 // Define a route handler for the root path
 app.get("/", (req, res) => {
